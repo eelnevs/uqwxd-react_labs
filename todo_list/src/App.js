@@ -48,7 +48,7 @@ const App = () => {
         todo.completed = !todo.completed;
       }
       return todo;
-    });
+    }).sort((x, y) => (x.completed === y.completed) ? 0 : x.completed ? 1 : -1);
     setTodos(updatedTodos);
   }
 
@@ -95,7 +95,6 @@ const App = () => {
             ) : (
               <button onClick={() => setTodoEditing(todo.id)}>Edit</button>
             )}
-
             <button onClick={() => deleteTodo(todo.id)}>Delete</button>
           </div>
         </div>
